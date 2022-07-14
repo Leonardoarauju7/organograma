@@ -1,5 +1,5 @@
 import './Banner.css'
-import '../index.css'
+
 function Banner() {
     return(
         <header className="banner">
