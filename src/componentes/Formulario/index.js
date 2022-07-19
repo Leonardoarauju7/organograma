@@ -5,26 +5,23 @@ import './Formulario.css'
 import { useState } from 'react'
 
 
-const Formulario = () =>{
-
-    const times = [
-        'Programação',
-        'Front-end',
-        'Data Science',
-        'Devops',
-        'Ui e Ux Design',
-        'Mobile' ,
-        'Inovação e Gestão'
-    ]
-
+const Formulario = (props) =>{
+    
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
     
     const aoSalvar = (evento) => {
-        evento.preventDefault(); // evento( previne que a pagina seja carregada ao submeter o botao)
-        console.log('form foi submetido', nome , cargo, imagem, time)
+        evento.preventDefault() // evento( previne que a pagina seja carregada ao submeter o botao)
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
+    
+        
     }
     
     return(
@@ -55,7 +52,7 @@ const Formulario = () =>{
                 <ListaSuspensa 
                     obrigatorio={true} 
                     label="Time" 
-                    itens={times} 
+                    itens={props.times} 
                     valor = {time}
                     aoAlterado={valor => setTime(valor)}
                 />
