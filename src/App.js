@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
+import Rodape from "./componentes/Rodape";
 
 
 
@@ -10,41 +11,39 @@ function App() {
   const times = [
     {
       nome: 'Programação',
-      corPrimaria: '#57c278',
-      corSecundaria:'#09f7e6',
+      corPrimaria: '#57C278',
+      corSecundaria: '#D9F7E9'
     },
     {
-      nome: 'Front-end',
-      corPrimaria: '#82cffa',
-      corSecundaria:'#e8f8ff',
+      nome: 'Front-End',
+      corPrimaria: '#82CFFA',
+      corSecundaria: '#E8F8FF'
     },
     {
-
       nome: 'Data Science',
-      corPrimaria: '#a6d157',                  
-      corSecundaria:'#F0F8E2',
+      corPrimaria: '#A6D157',
+      corSecundaria: '#F0F8E2'
     },
     {
       nome: 'Devops',
-      corPrimaria: '#e06b69',
-      corSecundaria:'#fde7e8',
+      corPrimaria: '#E06B69',
+      corSecundaria: '#FDE7E8'
     },
     {
-      nome: 'Ui e Ux Design',
-      corPrimaria: '#db6ebf',
-      corSecundaria:'#fae9f5',
+      nome: 'UX e Design',
+      corPrimaria: '#DB6EBF',
+      corSecundaria: '#FAE9F5'
     },
     {
       nome: 'Mobile',
-      corPrimaria: '#ffba05',
-      corSecundaria:'#fff5d9',
+      corPrimaria: '#FFBA05',
+      corSecundaria: '#FFF5D9'
     },
     {
       nome: 'Inovação e Gestão',
-      corPrimaria: '#ff8a29',
-      corSecundaria:'#ffeedf',
+      corPrimaria: '#FF8A29',
+      corSecundaria: '#FFEEDF'
     }
-
   ]
 
   
@@ -52,21 +51,23 @@ function App() {
   const [colaboradores, setColaboradores] = useState([])
 
   const aoNovoColaboradorAdicionado = (colaborador) => { //colaborador que acabou de chegar ta sendo colocado no array.
-    console.log(colaborador)
+    debugger
     setColaboradores([...colaboradores, colaborador])
   }
   return (
     <div className="App">
       <Banner />
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
-      
       {times.map( time => <Time 
         key = {time.nome} 
         nome={time.nome} 
-        corPrimaria={Time.corPrimaria} 
+        corPrimaria={time.corPrimaria} 
         corSecundaria={time.corSecundaria}
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
       />)}
+
+      <Rodape />
+     
       
      
     </div>

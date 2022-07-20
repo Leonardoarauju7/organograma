@@ -6,6 +6,7 @@ function Banner() {
             <img src="imagens/banner.png" alt=""></img>
         </header>
         
+        
     )
 }
 export default Banner

@@ -20,6 +20,11 @@ const Formulario = (props) =>{
             imagem,
             time
         })
+        //limpa os campos de preenchimento (input) depois de  cadastrar o colaborador!
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     
         
     }
